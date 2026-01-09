@@ -15,11 +15,11 @@ high_order_degradation: False # do not use the high-order degradation generation
 # dataset and data loader settings
 datasets:
   train:
-    name: DIV2K
+    name: tnt305
     type: RealESRGANPairedDataset
-    dataroot_gt: datasets/DF2K
-    dataroot_lq: datasets/DF2K
-    meta_info: datasets/DF2K/meta_info/meta_info_DIV2K_sub_pair.txt
+    dataroot_gt: /kaggle/input/licence-plate-super-resolution/Dataset/high_resolution
+    dataroot_lq: /kaggle/input/licence-plate-super-resolution/Dataset/low_resolution
+    meta_info: /kaggle/working/Real-ESRGAN/datasets/tnt305/meta_info/meta_info_tnt305_sub_pair.txt
     io_backend:
       type: disk
 
@@ -138,7 +138,7 @@ train:
 # logging settings
 logger:
   print_freq: 100
-  save_checkpoint_freq: !!float 5e3
+  save_checkpoint_freq: 500
   use_tb_logger: true
   wandb:
     project: ~
