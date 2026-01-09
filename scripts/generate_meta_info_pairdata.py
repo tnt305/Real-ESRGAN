@@ -27,15 +27,15 @@ if __name__ == '__main__':
     parser.add_argument(
         '--input',
         nargs='+',
-        default=['datasets/DF2K/DIV2K_train_HR_sub', 'datasets/DF2K/DIV2K_train_LR_bicubic_X4_sub'],
+        default=['/kaggle/input/licence-plate-super-resolution/Dataset/high_resolution', '/kaggle/input/licence-plate-super-resolution/Dataset/low_resolution'],
         help='Input folder, should be [gt_folder, lq_folder]')
     parser.add_argument('--root', nargs='+', default=[None, None], help='Folder root, will use the ')
     parser.add_argument(
         '--meta_info',
         type=str,
-        default='datasets/DF2K/meta_info/meta_info_DIV2K_sub_pair.txt',
+        default='datasets/tnt305/meta_info/meta_info_tnt305_sub_pair.txt',
         help='txt path for meta info')
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()
 
     assert len(args.input) == 2, 'Input folder should have two elements: gt folder and lq folder'
     assert len(args.root) == 2, 'Root path should have two elements: root for gt folder and lq folder'
